@@ -3,12 +3,85 @@
 <head>
   <meta charset="UTF-8" />
   <title>Sepolia Block Height</title>
-</head>
-<body>
-  <h2>Sepolia Testnet Block Height</h2>
 
-  <button id="btn">Get Current Block Number</button>
-  <p id="output">Click the button to fetch block number</p>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: linear-gradient(135deg, #0f172a, #1e293b);
+      color: #e2e8f0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 30px 40px;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+      text-align: center;
+      width: 360px;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    h2 {
+      margin-bottom: 20px;
+      font-size: 20px;
+      color: #f8fafc;
+    }
+
+    button {
+      background: #3b82f6;
+      color: white;
+      border: none;
+      padding: 12px 18px;
+      border-radius: 10px;
+      font-size: 14px;
+      cursor: pointer;
+      transition: 0.2s ease;
+      width: 100%;
+      margin-top: 10px;
+    }
+
+    button:hover {
+      background: #2563eb;
+      transform: translateY(-1px);
+    }
+
+    button:active {
+      transform: scale(0.98);
+    }
+
+    #output {
+      margin-top: 20px;
+      padding: 12px;
+      background: rgba(255,255,255,0.08);
+      border-radius: 10px;
+      font-size: 14px;
+      min-height: 20px;
+    }
+
+    .label {
+      font-size: 12px;
+      opacity: 0.7;
+      margin-bottom: 5px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="card">
+    <h2>⛓ Sepolia Testnet</h2>
+
+    <div class="label">Block Height Viewer</div>
+
+    <button id="btn">Get Current Block Number</button>
+
+    <p id="output">Click the button to fetch block number</p>
+  </div>
 
   <script src="https://cdn.jsdelivr.net/npm/ethers@6.13.4/dist/ethers.umd.min.js"></script>
 
