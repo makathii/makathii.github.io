@@ -133,7 +133,11 @@
 
         const userAddress = await signer.getAddress();
 
-        const contract = new ethers.Contract(TOKEN_ADDRESS, ABI, provider);
+        const contract = new ethers.Contract(
+          TOKEN_ADDRESS,
+          ABI,
+          await provider.getSigner()
+        );
 
         const [balance, decimals, symbol] = await Promise.all([
           contract.balanceOf(userAddress),
