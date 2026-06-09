@@ -102,7 +102,11 @@
   <script src="https://cdn.jsdelivr.net/npm/ethers@6.13.4/dist/ethers.umd.min.js"></script>
 
   <script>
-    const TOKEN_ADDRESS = "0xfee57c81a5716f7baa96ee5d7e8daa00072657b197c3609210feea8bd9335330";
+    const TOKEN_ADDRESS = "0xfee57c81a5716f7baa96ee5d7e8daa00072657b197c3609210feea8bd9335330".trim();
+
+    console.log("TOKEN LENGTH:", TOKEN_ADDRESS.length);
+    console.log("TOKEN VALUE:", JSON.stringify(TOKEN_ADDRESS));
+    console.log("IS ADDRESS:", ethers.isAddress(TOKEN_ADDRESS));
 
     const ABI = [
       "function balanceOf(address owner) view returns (uint256)",
