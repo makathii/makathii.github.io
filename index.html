@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Sepolia Block Height</title>
+</head>
+<body>
+  <h2>Sepolia Testnet Block Height</h2>
+
+  <button id="btn">Get Current Block Number</button>
+  <p id="output">Click the button to fetch block number</p>
+
+  <script src="https://cdn.jsdelivr.net/npm/ethers@6.13.4/dist/ethers.umd.min.js"></script>
+
+  <script>
+    const btn = document.getElementById("btn");
+    const output = document.getElementById("output");
+
+    btn.onclick = async () => {
+      try {
+        if (!window.ethereum) {
+          output.innerText = "MetaMask not installed";
+          return;
+        }
+
+        await window.ethereum.request({ method: "eth_requestAccounts" });
+
+        const provider = new ethers.BrowserProvider(window.ethereum);
+
+        const network = await provider.getNetwork();
+        if (network.chainId !== 11155111n) {
+          output.innerText = "Please switch MetaMask to Sepolia";
+          return;
+        }
+
+        const blockNumber = await provider.getBlockNumber();
+        output.innerText = "Current Sepolia block: " + blockNumber;
+
+      } catch (e) {
+        console.error(e);
+        output.innerText = "Error fetching block number";
+      }
+    };
+  </script>
+</body>
+</html>
